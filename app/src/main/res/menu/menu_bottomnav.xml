@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_BtnHome"
+        android:title="Home"
+        android:icon="@drawable/home"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menu_BtnMaps"
+        android:title="Maps"
+        android:icon="@drawable/location"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menu_BtnNews"
+        android:title="News"
+        android:icon="@drawable/news"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/menu_BtnProfile"
+        android:title="Profile"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/profile"
+        />
+
+</menu>
