@@ -20,27 +20,27 @@ public class CountryViewModel extends ViewModel {
 
     private MutableLiveData<ArrayList<Holidays>> listDiscoverCountry = new MutableLiveData<>();
 
-    public void setCountryDiscover(){
-        if (this.apiMain == null){
+    public void setCountryDiscover() {
+        if (this.apiMain == null) {
             apiMain = new ApiMain();
         }
 
-        apiMain.getApiCountry().getCountryDiscover().enqueue(new Callback<CountryDiscoverResponse>() {
+        apiMain.getApiCountry().getHolidays().enqueue(new Callback<Holidays>() {
             @Override
-            public void onResponse(Call<CountryDiscoverResponse> call, Response<CountryDiscoverResponse> response) {
-                CountryDiscoverResponse responseDiscover = response.body();
-                if (responseDiscover != null && responseDiscover.getHolidays() != null){
-                    ArrayList<CountryDiscoverHolidaysItem> countryDiscoverItems = responseDiscover.getHolidays();
-                    listDiscoverCountry.postValue(countryDiscoverItems);
+            public void onResponse(Call<Holidays> call, Response<Holidays> response) {
+                Holidays holidays = response.body();
+                if (holidays != null && holidays.getHolidays() != null) {
+                    ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems = holidays.getHolidays();
+                    listDiscoverCountry.postValue(countryDiscoverHolidaysItems);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<CountryDiscoverResponse> call, Throwable t) {
+            public void onFailure(Call<Holidays> call, Throwable t) {
 
             }
         });
-
     }
 
     public LiveData<ArrayList<CountryDiscoverHolidaysItem>> getCountryDiscover(){

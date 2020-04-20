@@ -7,7 +7,7 @@ public class ApiMain {
     private Retrofit retrofit;
 
     public CountryRepository getApiCountry(){
-        String BASE_URL = "https://getfestivo.com/";
+        String BASE_URL = "https://getfestivo.com";
         if (retrofit == null){
             retrofit = new Retrofit
                     .Builder()
