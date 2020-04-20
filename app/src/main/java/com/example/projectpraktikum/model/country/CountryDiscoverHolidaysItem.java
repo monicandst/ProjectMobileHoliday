@@ -2,7 +2,7 @@ package com.example.projectpraktikum.model.country;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CountryHolidaysItem {
+public class CountryDiscoverHolidaysItem {
 
 	@SerializedName("date")
 	private String date;
