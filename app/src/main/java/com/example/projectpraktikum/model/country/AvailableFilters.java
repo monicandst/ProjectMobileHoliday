@@ -1,21 +1,22 @@
 package com.example.projectpraktikum.model.country;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class AvailableFilters{
 
 	@SerializedName("languages")
-	private List<String> languages;
+	private ArrayList<String> languages;
 
 	@SerializedName("states")
 	private States states;
 
-	public void setLanguages(List<String> languages){
+	public void setLanguages(ArrayList<String> languages){
 		this.languages = languages;
 	}
 
-	public List<String> getLanguages(){
+	public ArrayList<String> getLanguages(){
 		return languages;
 	}
 
