@@ -1,22 +1,21 @@
 package com.example.projectpraktikum.model.country;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class Holidays{
 
 	@SerializedName("holidays")
-	private ArrayList<CountryDiscoverHolidaysItem> holidays;
+	private List<CountryDiscoverHolidaysItem> holidays;
 
 	@SerializedName("query")
 	private Query query;
 
-	public void setHolidays(ArrayList<CountryDiscoverHolidaysItem> holidays){
+	public void setHolidays(List<CountryDiscoverHolidaysItem> holidays){
 		this.holidays = holidays;
 	}
 
-	public ArrayList<CountryDiscoverHolidaysItem> getHolidays(){
+	public List<CountryDiscoverHolidaysItem> getHolidays(){
 		return holidays;
 	}
 
