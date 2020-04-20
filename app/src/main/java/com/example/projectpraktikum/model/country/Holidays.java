@@ -6,16 +6,16 @@ import com.google.gson.annotations.SerializedName;
 public class Holidays{
 
 	@SerializedName("holidays")
-	private List<HolidaysItem> holidays;
+	private List<CountryHolidaysItem> holidays;
 
 	@SerializedName("query")
 	private Query query;
 
-	public void setHolidays(List<HolidaysItem> holidays){
+	public void setHolidays(List<CountryHolidaysItem> holidays){
 		this.holidays = holidays;
 	}
 
-	public List<HolidaysItem> getHolidays(){
+	public List<CountryHolidaysItem> getHolidays(){
 		return holidays;
 	}
 
