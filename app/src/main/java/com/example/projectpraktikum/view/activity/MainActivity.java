@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -37,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.menu_BtnMaps:
                 selectedFragment = new MapsFragment();
+                loadFragment(selectedFragment);
+                break;
+            case R.id.menu_BtnProfile:
+                
                 loadFragment(selectedFragment);
                 break;
         }

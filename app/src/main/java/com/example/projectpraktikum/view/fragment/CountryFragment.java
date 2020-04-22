@@ -29,7 +29,9 @@ public class CountryFragment extends Fragment {
     private CountryDiscoverAdapter countryDiscoverAdapter;
     private RecyclerView rvCountryDiscover;
     CountryViewModel countryViewModel;
-
+    private String api_key = "87e8bec6-2695-4f86-a88c-4bb24858d408";
+    private String country = "US";
+    private String year = "2020";
     public CountryFragment() {
         // Required empty public constructor
     }
@@ -53,7 +55,7 @@ public class CountryFragment extends Fragment {
         rvCountryDiscover.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         countryViewModel = new ViewModelProvider(this).get(CountryViewModel.class);
-        countryViewModel.setCountryDiscover();
+        countryViewModel.setCountryDiscover(api_key, country, year);
         countryViewModel.getCountryDiscover().observe(this, getCountryDiscover);
 
         rvCountryDiscover.setAdapter(countryDiscoverAdapter);

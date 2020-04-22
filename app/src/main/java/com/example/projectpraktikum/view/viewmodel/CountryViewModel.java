@@ -18,26 +18,26 @@ import retrofit2.Response;
 public class CountryViewModel extends ViewModel {
     private ApiMain apiMain;
 
-    private MutableLiveData<ArrayList<Holidays>> listDiscoverCountry = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<CountryDiscoverHolidaysItem>> listDiscoverCountry = new MutableLiveData<ArrayList<CountryDiscoverHolidaysItem>>();
 
-    public void setCountryDiscover() {
+    public void setCountryDiscover(String api_key, String country, String year) {
         if (this.apiMain == null) {
             apiMain = new ApiMain();
         }
 
-        apiMain.getApiCountry().getHolidays().enqueue(new Callback<Holidays>() {
+        apiMain.getApiCountry().getHolidays(api_key, country, year).enqueue(new Callback<CountryDiscoverResponse>() {
             @Override
-            public void onResponse(Call<Holidays> call, Response<Holidays> response) {
-                Holidays holidays = response.body();
+            public void onResponse(Call<CountryDiscoverResponse> call, Response<CountryDiscoverResponse> response) {
+                CountryDiscoverResponse holidays = response.body();
                 if (holidays != null && holidays.getHolidays() != null) {
-                    ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems = holidays.getHolidays();
+                    ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems = holidays.getHolidays().getHolidays();
                     listDiscoverCountry.postValue(countryDiscoverHolidaysItems);
 
                 }
             }
 
             @Override
-            public void onFailure(Call<Holidays> call, Throwable t) {
+            public void onFailure(Call<CountryDiscoverResponse> call, Throwable t) {
 
             }
         });
