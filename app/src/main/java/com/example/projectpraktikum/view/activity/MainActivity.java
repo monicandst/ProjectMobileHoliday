@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.example.projectpraktikum.R;
 import com.example.projectpraktikum.view.fragment.CountryFragment;
-import com.example.projectpraktikum.view.fragment.MapsFragment;
+import com.example.projectpraktikum.view.fragment.FavoritFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 loadFragment(selectedFragment);
                 break;
             case R.id.menu_BtnMaps:
-                selectedFragment = new MapsFragment();
+                selectedFragment = new FavoritFragment();
                 loadFragment(selectedFragment);
                 break;
             case R.id.menu_BtnProfile:
