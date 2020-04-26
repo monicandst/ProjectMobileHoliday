@@ -32,6 +32,7 @@ public class CountryFragment extends Fragment {
     private String api_key = "87e8bec6-2695-4f86-a88c-4bb24858d408";
     private String country = "US";
     private String year = "2020";
+
     public CountryFragment() {
         // Required empty public constructor
     }
@@ -59,12 +60,24 @@ public class CountryFragment extends Fragment {
         countryViewModel.getCountryDiscover().observe(this, getCountryDiscover);
 
         rvCountryDiscover.setAdapter(countryDiscoverAdapter);
+
+//            countryViewModel.getCountryDiscover().observe(this, new Observer<ArrayList<CountryDiscoverHolidaysItem>>() {
+//                @Override
+//                public void onChanged(final ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems) {
+//                    countryDiscoverAdapter = new CountryDiscoverAdapter(countryDiscoverHolidaysItems, getActivity());
+//                    rvCountryDiscover.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+//                    rvCountryDiscover.setAdapter(countryDiscoverAdapter);
+//
+//
+//                }
+//            });
+
     }
 
     private Observer<ArrayList<CountryDiscoverHolidaysItem>> getCountryDiscover = new Observer<ArrayList<CountryDiscoverHolidaysItem>>() {
         @Override
         public void onChanged(ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems) {
-            if (countryDiscoverHolidaysItems != null){
+            if (countryDiscoverHolidaysItems != null) {
                 countryDiscoverAdapter.setData(countryDiscoverHolidaysItems);
             }
         }
