@@ -1,6 +1,7 @@
 package com.example.projectpraktikum.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.projectpraktikum.R;
 import com.example.projectpraktikum.model.country.CountryDiscoverHolidaysItem;
+import com.example.projectpraktikum.view.activity.CountryDetailActivity;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     private Context context;
 
 
-    private static String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w185/";
+//    private static String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w185/";
 
     public CountryDiscoverAdapter(Context context) {
         this.context = context;
@@ -44,9 +46,27 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CountryDiscoverAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CountryDiscoverAdapter.ViewHolder holder, final int position) {
 
         holder.tvTitle.setText(countryDiscoverHolidaysItems.get(position).getName());
+        CardView cardView = holder.cvItem;
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CountryDetailActivity.class);
+
+                intent.putExtra("tvTitle",countryDiscoverHolidaysItems.get(position).getName());
+                intent.putExtra("tvDate",countryDiscoverHolidaysItems.get(position).getDate());
+                intent.putExtra("tvStart",countryDiscoverHolidaysItems.get(position).getStart());
+                intent.putExtra("tvEnd",countryDiscoverHolidaysItems.get(position).getEnd());
+                intent.putExtra("tvType",countryDiscoverHolidaysItems.get(position).getType());
+                intent.putExtra("tvCountry",countryDiscoverHolidaysItems.get(position).getCountry());
+                context.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -55,7 +75,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivThumb;
+        ImageView ivThumb, ivStarFavorit;
         TextView tvTitle;
         CardView cvItem;
 
@@ -64,6 +84,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
             cvItem = itemView.findViewById(R.id.itemlist_cv);
             ivThumb = itemView.findViewById(R.id.itemlist_iv_thumbnail);
             tvTitle = itemView.findViewById(R.id.itemlist_tv_name);
+            ivStarFavorit =itemView.findViewById(R.id.itemlist_star_favorit);
         }
     }
 }
