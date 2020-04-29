@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.projectpraktikum.model.country.CountryDiscoverHolidaysItem;
 import com.example.projectpraktikum.model.country.CountryDiscoverResponse;
-import com.example.projectpraktikum.model.country.Holidays;
 import com.example.projectpraktikum.service.ApiMain;
 
 import java.util.ArrayList;

@@ -25,6 +25,9 @@ public class CountryDiscoverHolidaysItem {
 	@SerializedName("type")
 	private String type;
 
+	@SerializedName("substitute")
+	private boolean substitute;
+
 	public void setDate(String date){
 		this.date = date;
 	}
@@ -81,6 +84,14 @@ public class CountryDiscoverHolidaysItem {
 		return type;
 	}
 
+	public void setSubstitute(boolean substitute){
+		this.substitute = substitute;
+	}
+
+	public boolean isSubstitute(){
+		return substitute;
+	}
+
 	@Override
  	public String toString(){
 		return 
@@ -92,6 +103,7 @@ public class CountryDiscoverHolidaysItem {
 			",name = '" + name + '\'' + 
 			",end = '" + end + '\'' + 
 			",type = '" + type + '\'' + 
+			",substitute = '" + substitute + '\'' + 
 			"}";
 		}
 }

@@ -29,7 +29,7 @@ public class CountryFragment extends Fragment {
     private CountryDiscoverAdapter countryDiscoverAdapter;
     private RecyclerView rvCountryDiscover;
     CountryViewModel countryViewModel;
-    private String api_key = "87e8bec6-2695-4f86-a88c-4bb24858d408";
+    private String api_key = "578ad9cd-abe0-4959-80c4-b12bfe639b87";
     private String country = "US";
     private String year = "2020";
 

@@ -7,17 +7,11 @@ public class Query{
 	@SerializedName("country")
 	private String country;
 
-	@SerializedName("month")
-	private String month;
-
-	@SerializedName("api_key")
-	private String apiKey;
-
 	@SerializedName("year")
 	private String year;
 
-	@SerializedName("day")
-	private String day;
+	@SerializedName("api_key")
+	private String apiKey;
 
 	public void setCountry(String country){
 		this.country = country;
@@ -25,22 +19,6 @@ public class Query{
 
 	public String getCountry(){
 		return country;
-	}
-
-	public void setMonth(String month){
-		this.month = month;
-	}
-
-	public String getMonth(){
-		return month;
-	}
-
-	public void setApiKey(String apiKey){
-		this.apiKey = apiKey;
-	}
-
-	public String getApiKey(){
-		return apiKey;
 	}
 
 	public void setYear(String year){
@@ -51,12 +29,12 @@ public class Query{
 		return year;
 	}
 
-	public void setDay(String day){
-		this.day = day;
+	public void setApiKey(String apiKey){
+		this.apiKey = apiKey;
 	}
 
-	public String getDay(){
-		return day;
+	public String getApiKey(){
+		return apiKey;
 	}
 
 	@Override
@@ -64,10 +42,8 @@ public class Query{
 		return 
 			"Query{" + 
 			"country = '" + country + '\'' + 
-			",month = '" + month + '\'' + 
-			",api_key = '" + apiKey + '\'' + 
 			",year = '" + year + '\'' + 
-			",day = '" + day + '\'' + 
+			",api_key = '" + apiKey + '\'' + 
 			"}";
 		}
 }
