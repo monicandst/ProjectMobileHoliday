@@ -67,7 +67,6 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
         CardView cardView = holder.cvItem;
         ImageButton imageButton = holder.ivStarFavorit;
 
-        appDatabase = AppDatabase.iniDb(getApplication());
 
 
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +88,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                appDatabase = AppDatabase.iniDb(context);
                 final DataHoliday dataHoliday = new DataHoliday();
                 //   dataHoliday.setId(idHoliday);
                 dataHoliday.setNameHoliday(countryDiscoverHolidaysItems.get(i).getName());

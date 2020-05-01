@@ -13,12 +13,15 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectpraktikum.R;
+import com.example.projectpraktikum.entity.AppDatabase;
 import com.example.projectpraktikum.entity.DataHoliday;
 import com.example.projectpraktikum.view.MainContact;
 
 import java.util.ArrayList;
 
 public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> {
+
+    private AppDatabase appDatabase;
     private Context context;
     private ArrayList<DataHoliday> list;
     private MainContact.hapus view;
@@ -67,6 +70,8 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
             ivFavorit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    appDatabase = AppDatabase.iniDb(context);
+
                     view.deleteData(dataHoliday);
                 }
             });
