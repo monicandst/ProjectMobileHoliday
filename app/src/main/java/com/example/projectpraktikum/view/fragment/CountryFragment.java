@@ -13,10 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.projectpraktikum.R;
 import com.example.projectpraktikum.adapter.CountryDiscoverAdapter;
 import com.example.projectpraktikum.model.country.CountryDiscoverHolidaysItem;
+import com.example.projectpraktikum.presenter.MainPresenter;
+import com.example.projectpraktikum.presenter.MainView;
+import com.example.projectpraktikum.view.MainContact;
 import com.example.projectpraktikum.view.viewmodel.CountryViewModel;
 
 import java.util.ArrayList;
@@ -24,8 +28,9 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CountryFragment extends Fragment {
+public class CountryFragment extends Fragment implements MainView {
 
+    private MainPresenter mainPresenter;
     private CountryDiscoverAdapter countryDiscoverAdapter;
     private RecyclerView rvCountryDiscover;
     CountryViewModel countryViewModel;
@@ -60,7 +65,6 @@ public class CountryFragment extends Fragment {
         countryViewModel.getCountryDiscover().observe(this, getCountryDiscover);
 
         rvCountryDiscover.setAdapter(countryDiscoverAdapter);
-
 //            countryViewModel.getCountryDiscover().observe(this, new Observer<ArrayList<CountryDiscoverHolidaysItem>>() {
 //                @Override
 //                public void onChanged(final ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems) {
@@ -82,4 +86,19 @@ public class CountryFragment extends Fragment {
             }
         }
     };
+
+    @Override
+    public void onSucces(ArrayList<CountryDiscoverHolidaysItem> holidaysItems) {
+
+    }
+
+    @Override
+    public void onError(String errorMessage) {
+        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFailure(String failureMessage) {
+        Toast.makeText(getContext(), failureMessage, Toast.LENGTH_SHORT).show();
+    }
 }

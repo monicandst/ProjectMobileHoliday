@@ -2,11 +2,14 @@ package com.example.projectpraktikum.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -14,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectpraktikum.DBInternal.DBDataSource;
 import com.example.projectpraktikum.R;
+import com.example.projectpraktikum.entity.AppDatabase;
+import com.example.projectpraktikum.entity.DataHoliday;
+import com.example.projectpraktikum.entity.DataHolidayDao;
 import com.example.projectpraktikum.model.country.CountryDiscoverHolidaysItem;
 import com.example.projectpraktikum.view.activity.CountryDetailActivity;
 
@@ -25,9 +31,13 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     private ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems = new ArrayList<>();
     private Context context;
 
+    private String nameHoliday, dateHoliday, startHoliday, endHoliday, typeHoliday, countryHoliday;
+    AppDatabase appDatabase;
+
+
     //DB internal
-    private DBDataSource db;
-    private boolean favorite;
+//    private DBDataSource db;
+//    private boolean favorite;
 
 
 //    private static String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w185/";
@@ -48,39 +58,54 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new ViewHolder(view);
 
-//        //Set favorite dan Insert data dari API ke Sqlite database
-//        db = new DBDataSource(ContentFavorito.this);
-//        db.open();
-//        //Cek fav
-//        favorite = db.isFavorite(Integer.valueOf(idDB));
-
-
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CountryDiscoverAdapter.ViewHolder holder, final int position) {
-
-        holder.tvTitle.setText(countryDiscoverHolidaysItems.get(position).getName());
+    public void onBindViewHolder(@NonNull CountryDiscoverAdapter.ViewHolder holder, final int i) {
+        holder.tvTitle.setText(countryDiscoverHolidaysItems.get(i).getName());
         CardView cardView = holder.cvItem;
+        ImageButton imageButton = holder.ivStarFavorit;
+
+        appDatabase = AppDatabase.iniDb(getApplication());
+
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CountryDetailActivity.class);
 
-                intent.putExtra("tvTitle", countryDiscoverHolidaysItems.get(position).getName());
-                intent.putExtra("tvDate", countryDiscoverHolidaysItems.get(position).getDate());
-                intent.putExtra("tvStart", countryDiscoverHolidaysItems.get(position).getStart());
-                intent.putExtra("tvEnd", countryDiscoverHolidaysItems.get(position).getEnd());
-                intent.putExtra("tvType", countryDiscoverHolidaysItems.get(position).getType());
-                intent.putExtra("tvCountry", countryDiscoverHolidaysItems.get(position).getCountry());
+                intent.putExtra("tvTitle", countryDiscoverHolidaysItems.get(i).getName());
+                intent.putExtra("tvDate", countryDiscoverHolidaysItems.get(i).getDate());
+                intent.putExtra("tvStart", countryDiscoverHolidaysItems.get(i).getStart());
+                intent.putExtra("tvEnd", countryDiscoverHolidaysItems.get(i).getEnd());
+                intent.putExtra("tvType", countryDiscoverHolidaysItems.get(i).getType());
+                intent.putExtra("tvCountry", countryDiscoverHolidaysItems.get(i).getCountry());
                 context.startActivity(intent);
+//                    Toast.makeText(context, countryDiscoverHolidaysItems.get(i).getName(), Toast.LENGTH_SHORT).show();
 
             }
         });
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DataHoliday dataHoliday = new DataHoliday();
+                //   dataHoliday.setId(idHoliday);
+                dataHoliday.setNameHoliday(countryDiscoverHolidaysItems.get(i).getName());
+                dataHoliday.setDateHoliday(countryDiscoverHolidaysItems.get(i).getDate());
+                dataHoliday.setStartHoliday(countryDiscoverHolidaysItems.get(i).getStart());
+                dataHoliday.setEndHoliday(countryDiscoverHolidaysItems.get(i).getEnd());
+                dataHoliday.setTypeHoliday(countryDiscoverHolidaysItems.get(i).getType());
+                dataHoliday.setCountryHoliday(countryDiscoverHolidaysItems.get(i).getCountry());
 
+                new InsertData(appDatabase,dataHoliday).execute();
+
+            }
+        });
+//        holder.bind(i);
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -88,9 +113,10 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivThumb, ivStarFavorit;
-        TextView tvTitle;
-        CardView cvItem;
+         ImageView ivThumb;
+         ImageButton ivStarFavorit;
+         TextView tvTitle,tvDate,tvStart,tvEnd,tvType,tvCountry;
+         CardView cvItem;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +124,35 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
             ivThumb = itemView.findViewById(R.id.itemlist_iv_thumbnail);
             tvTitle = itemView.findViewById(R.id.itemlist_tv_name);
             ivStarFavorit = itemView.findViewById(R.id.itemlist_star_favorit);
+
+        }
+//        public void bind(final int i) {
+//
+//
+//
+//        }
+    }
+    class InsertData extends AsyncTask<Void, Void, Long>{
+        private AppDatabase database;
+        private  DataHoliday dataHoliday;
+
+
+        public InsertData(AppDatabase database, DataHoliday dataHoliday) {
+            this.database = database;
+            this.dataHoliday = dataHoliday;
+
+        }
+
+        @Override
+        protected Long doInBackground(Void... voids) {
+
+            return database.dao().insertData(dataHoliday);
+        }
+
+        protected void onPostExecute(Long aLong){
+            super.onPostExecute(aLong);
+            Toast.makeText(context, "Favorit", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

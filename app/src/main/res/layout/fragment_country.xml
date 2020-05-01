@@ -6,6 +6,13 @@
     tools:context=".view.fragment.CountryFragment"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu Holiday"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragmentcountry_rv"
         android:layout_width="match_parent"

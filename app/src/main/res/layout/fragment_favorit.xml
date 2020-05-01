@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.FavoritFragment">
+    tools:context=".view.fragment.FavoritFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="355dp" />
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:text="Menu Favorit"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragmentfavorit_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_favorit"/>
+</LinearLayout>
 
