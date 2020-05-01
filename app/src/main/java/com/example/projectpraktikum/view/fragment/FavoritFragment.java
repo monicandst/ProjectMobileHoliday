@@ -35,7 +35,7 @@ import java.util.List;
  */
 public class FavoritFragment extends Fragment implements MainContact.hapus {
 
-    private String api_key = "578ad9cd-abe0-4959-80c4-b12bfe639b87";
+    private String api_key = "c24154c7-940d-493c-aeda-a6bda09b05da";
     private String country = "US";
     private String year = "2020";
 

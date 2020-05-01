@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectpraktikum.DBInternal.DBDataSource;
 import com.example.projectpraktikum.R;
 import com.example.projectpraktikum.entity.AppDatabase;
 import com.example.projectpraktikum.entity.DataHoliday;
