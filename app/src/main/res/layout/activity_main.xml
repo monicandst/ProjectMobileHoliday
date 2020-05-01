@@ -19,8 +19,8 @@
         android:id="@+id/btn_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#323232"
-        app:menu="@menu/menu_bottomnav"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:background="#dfddc7"
+        app:menu="@menu/menu_bottomnav" />
 
 </LinearLayout>

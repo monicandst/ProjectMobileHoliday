@@ -4,65 +4,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.CountryDetailActivity">
+    tools:context=".view.activity.CountryDetailActivity"
+    android:background="#272727">
 
     <TextView
         android:id="@+id/info_detail_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:fontFamily="monospace"
+        android:textColor="#ffff"
+        android:gravity="center"
         android:text="Title/Name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/info_detail_image"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:src="@drawable/ic_launcher_background" />-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="40dp"
+        android:fontFamily="monospace"
+        android:text="D a t e "
+        android:textColor="#ffff" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="date          : " />
-    <TextView
         android:id="@+id/info_detail_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="70dp"
+        android:fontFamily="monospace"
         android:text="isi_date"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start         :" />
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="40dp"
+        android:fontFamily="monospace"
+        android:text="S t a r t" />
+
     <TextView
         android:id="@+id/info_detail_start"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="70dp"
+        android:fontFamily="monospace"
         android:text="isi_start" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="end           :" />
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="40dp"
+        android:text="E n d" />
+
     <TextView
         android:id="@+id/info_detail_end"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="70dp"
         android:text="isi_end" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="type          :" />
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="40dp"
+        android:text="T y p e" />
+
     <TextView
         android:id="@+id/info_detail_type"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="70dp"
         android:text="isi_type" />
 
 <!--    <TextView-->
@@ -77,13 +93,17 @@
 <!--        android:text="isi_public" />-->
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="country      :" />
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="40dp"
+        android:text="C o u n t r y" />
     <TextView
         android:id="@+id/info_detail_country"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="#ffff"
+        android:layout_marginLeft="70dp"
         android:text="isi_country" />
 
 

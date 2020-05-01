@@ -8,11 +8,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menu Holiday"
+        android:layout_height="50dp"
+        android:text="A Day to Holiday"
+        android:background="#5b5656"
+        android:textColor="#ffff"
         android:textSize="24dp"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:layout_gravity="center"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragmentcountry_rv"
         android:layout_width="match_parent"

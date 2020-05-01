@@ -72,7 +72,6 @@ public class FavoritFragment extends Fragment implements MainContact.hapus {
     public void readData(AppDatabase database){
         List list;
         list = database.dao().getData();
-
         favoritAdapter = new FavoritAdapter(context, (ArrayList<DataHoliday>) list, this);
         A.setAdapter(favoritAdapter);
     }

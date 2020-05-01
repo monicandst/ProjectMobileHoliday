@@ -121,7 +121,6 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cvItem = itemView.findViewById(R.id.itemlist_cv);
-            ivThumb = itemView.findViewById(R.id.itemlist_iv_thumbnail);
             tvTitle = itemView.findViewById(R.id.itemlist_tv_name);
             ivStarFavorit = itemView.findViewById(R.id.itemlist_star_favorit);
 

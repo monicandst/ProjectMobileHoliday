@@ -38,10 +38,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 selectedFragment = new FavoritFragment();
                 loadFragment(selectedFragment);
                 break;
-            case R.id.menu_BtnProfile:
-                
-                loadFragment(selectedFragment);
-                break;
         }
         return loadFragment(selectedFragment);
     }

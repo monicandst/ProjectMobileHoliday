@@ -60,7 +60,6 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
             super(itemView);
             tvTitlefav = itemView.findViewById(R.id.itemfavorit_tv_name);
             cvItemFav = itemView.findViewById(R.id.itemfavorit_cv);
-            ivThumbFav = itemView.findViewById(R.id.itemfavorit_iv_thumbnail);
             ivFavorit = itemView.findViewById(R.id.itemfavorit_star_favorit);
         }
 
