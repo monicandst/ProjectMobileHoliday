@@ -38,14 +38,16 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_favorit, viewGroup,false);
         Holder holder = new Holder(view);
-        return null;
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull FavoritAdapter.Holder holder, int i) {
         holder.bind(i);
     }
-
+    private ImageView ivFavorit;
+    private TextView tvTitlefav;
+    private CardView cvItemFav;
 
     @Override
     public int getItemCount() {
@@ -53,9 +55,6 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        ImageView ivThumbFav, ivFavorit;
-        TextView tvTitlefav;
-        CardView cvItemFav;
         public Holder(@NonNull View itemView) {
             super(itemView);
             tvTitlefav = itemView.findViewById(R.id.itemfavorit_tv_name);
