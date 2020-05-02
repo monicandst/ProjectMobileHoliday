@@ -65,16 +65,6 @@ public class CountryFragment extends Fragment implements MainView {
         countryViewModel.getCountryDiscover().observe(this, getCountryDiscover);
 
         rvCountryDiscover.setAdapter(countryDiscoverAdapter);
-//            countryViewModel.getCountryDiscover().observe(this, new Observer<ArrayList<CountryDiscoverHolidaysItem>>() {
-//                @Override
-//                public void onChanged(final ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems) {
-//                    countryDiscoverAdapter = new CountryDiscoverAdapter(countryDiscoverHolidaysItems, getActivity());
-//                    rvCountryDiscover.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-//                    rvCountryDiscover.setAdapter(countryDiscoverAdapter);
-//
-//
-//                }
-//            });
 
     }
 

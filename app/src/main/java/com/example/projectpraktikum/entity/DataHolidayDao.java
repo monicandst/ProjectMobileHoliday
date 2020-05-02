@@ -17,9 +17,6 @@ public interface DataHolidayDao {
     @Query("Select * from holiday_db")
     List<DataHoliday> getData();
 
-    @Update
-    int updateData(DataHoliday item);
-
     @Delete
     void deleteData(DataHoliday item);
 }

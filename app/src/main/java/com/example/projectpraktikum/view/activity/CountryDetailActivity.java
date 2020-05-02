@@ -15,7 +15,6 @@ import com.example.projectpraktikum.model.country.CountryDiscoverHolidaysItem;
 
 public class CountryDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MOVIE_ID = "";
 
     private CountryDiscoverHolidaysItem holidaysItem;
     private TextView tvTitle, tvDate, tvStart, tvEnd, tvType, tvPublic, tvCountry;
@@ -32,21 +31,8 @@ public class CountryDetailActivity extends AppCompatActivity {
         tvStart = findViewById(R.id.info_detail_start);
         tvEnd = findViewById(R.id.info_detail_end);
         tvType = findViewById(R.id.info_detail_type);
-//        tvPublic = findViewById(R.id.info_detail_public);
         tvCountry = findViewById(R.id.info_detail_country);
 
-//        holidaysItem = (CountryDiscoverHolidaysItem) getIntent().getExtras().get(EXTRA_MOVIE_ID);
-
-//        tvTitle.setText(holidaysItem.getName());
-//        tvDate.setText(holidaysItem.getDate());
-//        tvStart.setText(holidaysItem.getStart());
-//        tvEnd.setText(holidaysItem.getEnd());
-//        tvType.setText(holidaysItem.getType());
-//        tvCountry.setText(holidaysItem.getCountry());
-////        tvPublic.setText(holidaysItem.);
-////        Glide.with(getApplicationContext())
-////                .load(""+holidaysItem.isJsonMemberPublic())
-////                .into(ivPoster);
 
         getIncomingIntent();
     }
@@ -80,10 +66,7 @@ public class CountryDetailActivity extends AppCompatActivity {
             tvEnd.setText(getTvEnd);
             tvType.setText(getTvType);
             tvCountry.setText(getTvCountry);
-//        tvPublic.setText(holidaysItem.);
-//        Glide.with(getApplicationContext())
-//                .load(""+holidaysItem.isJsonMemberPublic())
-//                .into(ivPoster);
+
         }
 
     }

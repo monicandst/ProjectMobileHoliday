@@ -29,17 +29,9 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
 
     private ArrayList<CountryDiscoverHolidaysItem> countryDiscoverHolidaysItems = new ArrayList<>();
     private Context context;
-
-    private String nameHoliday, dateHoliday, startHoliday, endHoliday, typeHoliday, countryHoliday;
     AppDatabase appDatabase;
 
 
-    //DB internal
-//    private DBDataSource db;
-//    private boolean favorite;
-
-
-//    private static String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w185/";
 
     public CountryDiscoverAdapter(Context context) {
         this.context = context;
@@ -80,7 +72,6 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
                 intent.putExtra("tvType", countryDiscoverHolidaysItems.get(i).getType());
                 intent.putExtra("tvCountry", countryDiscoverHolidaysItems.get(i).getCountry());
                 context.startActivity(intent);
-//                    Toast.makeText(context, countryDiscoverHolidaysItems.get(i).getName(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -101,7 +92,6 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
 
             }
         });
-//        holder.bind(i);
     }
 
 
@@ -114,7 +104,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
     public class ViewHolder extends RecyclerView.ViewHolder {
          ImageView ivThumb;
          ImageButton ivStarFavorit;
-         TextView tvTitle,tvDate,tvStart,tvEnd,tvType,tvCountry;
+         TextView tvTitle;
          CardView cvItem;
 
         public ViewHolder(@NonNull View itemView) {
@@ -124,11 +114,7 @@ public class CountryDiscoverAdapter extends RecyclerView.Adapter<CountryDiscover
             ivStarFavorit = itemView.findViewById(R.id.itemlist_star_favorit);
 
         }
-//        public void bind(final int i) {
-//
-//
-//
-//        }
+
     }
     class InsertData extends AsyncTask<Void, Void, Long>{
         private AppDatabase database;
