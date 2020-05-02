@@ -3,15 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemfavorit_cv"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="#272727">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#272727"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp">
 
         <LinearLayout
             android:layout_marginStart="4dp"
@@ -25,14 +30,14 @@
                 android:id="@+id/itemfavorit_tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Name Country"
+                android:text="Name Holiday"
                 android:textColor="#ffff"
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:fontFamily="monospace"
                 android:background="#272727"
                 android:gravity="center_vertical"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:elevation="10dp"/>
 
             <ImageButton
@@ -43,7 +48,82 @@
                 android:elevation="1dp"
                 android:outlineAmbientShadowColor="#272727"
                 android:src="@drawable/star"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#696969"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
 
+            >
+        <TextView
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="D a t e :"
+            />
+        <TextView
+            android:id="@+id/itemfavorit_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:layout_marginLeft="5dp"
+            android:text="Date"/>
+        <TextView
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="S t a r t :"/>
+        <TextView
+            android:id="@+id/itemfavorit_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffff"
+            android:text="start"/>
+        <TextView
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="E n d :"/>
+        <TextView
+            android:id="@+id/itemfavorit_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffff"
+            android:text="end"/>
+        <TextView
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="T y p e :"/>
+        <TextView
+            android:id="@+id/itemfavorit_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffff"
+            android:text="type"/>
+        <TextView
+            android:textColor="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="C o u n t r y :"/>
+        <TextView
+            android:id="@+id/itemfavorit_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffff"
+            android:text="Country"/>
         </LinearLayout>
 
     </LinearLayout>

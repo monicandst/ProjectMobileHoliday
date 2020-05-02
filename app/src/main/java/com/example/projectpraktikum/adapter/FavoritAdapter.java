@@ -46,7 +46,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
         holder.bind(i);
     }
     private ImageView ivFavorit;
-    private TextView tvTitlefav;
+    private TextView tvTitlefav, tvDate, tvStart, tvEnd, tvType, tvCountry;
     private CardView cvItemFav;
 
     @Override
@@ -60,11 +60,23 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.Holder> 
             tvTitlefav = itemView.findViewById(R.id.itemfavorit_tv_name);
             cvItemFav = itemView.findViewById(R.id.itemfavorit_cv);
             ivFavorit = itemView.findViewById(R.id.itemfavorit_star_favorit);
+            tvDate = itemView.findViewById(R.id.itemfavorit_date);
+            tvStart = itemView.findViewById(R.id.itemfavorit_start);
+            tvEnd = itemView.findViewById(R.id.itemfavorit_end);
+            tvType = itemView.findViewById(R.id.itemfavorit_type);
+            tvCountry = itemView.findViewById(R.id.itemfavorit_country);
+
         }
 
         public void bind(int i){
             final DataHoliday dataHoliday = list.get(i);
             tvTitlefav.setText(dataHoliday.getNameHoliday());
+            tvDate.setText(dataHoliday.getDateHoliday());
+            tvStart.setText(dataHoliday.getStartHoliday());
+            tvEnd.setText(dataHoliday.getEndHoliday());
+            tvType.setText(dataHoliday.getTypeHoliday());
+            tvCountry.setText(dataHoliday.getCountryHoliday());
+
             ivFavorit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
